@@ -1,0 +1,31 @@
+@import "@fortawesome/fontawesome-free/css/all.min.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth; /* Esto asegura que el desplazamiento sea suave */
+}
+
+html,
+body,
+#root,
+.App {
+  height: 100%;
+  margin: 0;
+}
+
+.scroll-container {
+  height: 100%;
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+}
+
+section {
+  height: 100vh;
+  scroll-snap-align: start;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

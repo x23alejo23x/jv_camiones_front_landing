@@ -1,0 +1,64 @@
+{
+  "carBrands": [
+    {
+      "brand": "Toyota",
+      "image": "https://www.toyota.com.co/wp-content/uploads/2025/01/Corolla-XEI-400x400-1.png",
+      "title": "Toyota Corolla",
+      "urlFichaTecnica": "https://www.toyota.com/corolla"
+    },
+    {
+      "brand": "Toyota",
+      "image": "https://tmna.aemassets.toyota.com/is/image/toyota/toyota/vehicles/2025/tacoma/mlp/hotspots/TAC_MY25_0022_V001.png?fmt=png-alpha&fit=crop&wid=1439",
+      "title": "Toyota Tacoma",
+      "urlFichaTecnica": "https://www.toyota.com/tacoma"
+    },
+    {
+      "brand": "Toyota",
+      "image": "https://www.toyota.com.co/wp-content/uploads/2021/01/PLATA-METALICO-3038-4.png",
+      "title": "Toyota RAV4",
+      "urlFichaTecnica": "https://www.toyota.com/rav4"
+    },
+    {
+      "brand": "Suzuki",
+      "image": "https://suzukiderco.vtexassets.com/arquivos/especificaciones-swift-suzuki.jpg",
+      "title": "Suzuki Swift",
+      "urlFichaTecnica": "https://www.suzuki.co.uk/cars/swift"
+    },
+    {
+      "brand": "Suzuki",
+      "image": "https://suzukiderco.vtexassets.com/arquivos/vitara-4x4-especificaciones-up.jpg?v=638265195910130000",
+      "title": "Suzuki Vitara",
+      "urlFichaTecnica": "https://www.suzuki.co.uk/cars/vitara"
+    },
+    {
+      "brand": "Suzuki",
+      "image": "https://suzukiderco.vtexassets.com/arquivos/Jimny-interna.png?v=638200367575970000",
+      "title": "Suzuki Jimny",
+      "urlFichaTecnica": "https://www.suzuki.co.uk/cars/jimny"
+    },
+    {
+      "brand": "Volvo",
+      "image": "https://cas.volvocars.com/image/dynamic/MY25_2417/225/exterior-aligned-v1/RA/1/74000/RA0000/R183/TC06/_/TP05/_/JT02/GR02/T101/TJ02/NP02/TM04/JG02/_/EV02/JB0C/T21A/LF05/VP09/FH02/_/_/_/_/default.jpg?market=es&client=pdps&angle=4&bg=descriptive-studio&w=1080&imdensity=1",
+      "title": "Volvo V60",
+      "urlFichaTecnica": "https://www.volvocars.com/uk/cars/v60"
+    },
+    {
+      "brand": "Volvo",
+      "image": "https://www.volvocars.com/images/cs/v3/assets/blt0feaa88e629251fc/bltd89ef7193a6f43c0/669dff68792d78acdb316b98/xc60-fuel-hero-16x9.jpg?branch=prod_alias&auto=avif&quality=85&format=webp&iar=0&w=1366",
+      "title": "Volvo XC60",
+      "urlFichaTecnica": "https://www.volvocars.com/uk/cars/xc60"
+    },
+    {
+      "brand": "Volvo",
+      "image": "https://www.volvocars.com/images/cs/v3/assets/blt0feaa88e629251fc/bltd89ef7193a6f43c0/669dff68792d78acdb316b98/xc60-fuel-hero-16x9.jpg?branch=prod_alias&auto=avif&quality=85&format=webp&iar=0&w=1366",
+      "title": "Volvo XC60",
+      "urlFichaTecnica": "https://www.volvocars.com/uk/cars/xc60"
+    },
+    {
+      "brand": "Volvo",
+      "image": "https://www.volvocars.com/images/cs/v3/assets/blt0feaa88e629251fc/blt4fc7e8e47e4bda1f/66b360a2a5ff9f931623e95e/s60-fuel-gallery-1-21x9.jpg?branch=prod_alias&auto=avif&quality=85&format=webp&iar=0&w=1920&imdensity=1",
+      "title": "Volvo S60",
+      "urlFichaTecnica": "https://www.volvocars.com/uk/cars/s60"
+    }
+  ]
+}
