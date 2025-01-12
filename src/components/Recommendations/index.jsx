@@ -15,7 +15,7 @@ const Recommendations = () => {
   return (
     <div className="min-h-screen p-10 space-y-10 md:flex md:space-y-0 md:space-x-10">
       {/* Sección Izquierda oculta en pantallas pequeñas */}
-      <div className="flex-1 flex justify-center items-center hidden md:flex">
+      <div className="flex-1 justify-center items-center hidden md:flex">
         <div className="md:flex w-[500px] h-[354px] bw-full rounded-lg shadow-[0px_3px_160px_15px_rgba(123,_155,_231,_0.93)]">
           {cards.map((card, index) => (
             <div
