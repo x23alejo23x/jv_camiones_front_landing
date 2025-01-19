@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useMemo } from "react";
-import data from "../data.json";
 import TruckCarouselDisplay from "../TruckCarouselDisplay";
 import BrandFilter from "../BrandFilter";
 import Pagination from "../Pagination";
@@ -9,9 +8,27 @@ const TruckCarouselLogic = ({ onDataChange }) => {
   const [selectedBrand, setSelectedBrand] = useState("");
   const [currentPage, setCurrentPage] = useState(0);
   const [cardsPerPage, setCardsPerPage] = useState(3);
-  const { carBrands } = data;
+  const [carBrands, setCarBrands] = useState([]);
+  const [uniqueBrands, setUniqueBrands] = useState([]);
 
-  const uniqueBrands = Array.from(new Set(carBrands.map((item) => item.brand)));
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/productos`);
+        if (!response.ok) {
+          throw new Error("Error fetching products");
+        }
+        const data = await response.json();
+        setCarBrands(data);
+        const brands = Array.from(new Set(data.map((item) => item.brand)));
+        setUniqueBrands(brands);
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      }
+    };
+
+    fetchProducts();
+  }, []);
 
   useEffect(() => {
     const handleResize = () => {
@@ -71,16 +88,13 @@ const TruckCarouselLogic = ({ onDataChange }) => {
 
   return (
     <div className="flex flex-col justify-center items-center">
-      {/* Filtros por marca */}
       <BrandFilter
         uniqueBrands={uniqueBrands}
         selectedBrand={selectedBrand}
         handleBrandChange={handleBrandChange}
       />
 
-      {/* Contenedor de flechas y tarjetas */}
       <div className="relative flex justify-center items-center w-full overflow-hidden">
-        {/* Flechas laterales */}
         <button
           onClick={handlePrev}
           disabled={currentPage === 0}
@@ -102,7 +116,6 @@ const TruckCarouselLogic = ({ onDataChange }) => {
         </button>
       </div>
 
-      {/* Paginación debajo de las tarjetas */}
       <Pagination
         currentPage={currentPage}
         totalPages={totalPages}
