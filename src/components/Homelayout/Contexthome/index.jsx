@@ -1,7 +1,7 @@
 import React from "react";
 import SocialButtons from "../SocialButtons/index";
 
-const homeLogo = "/assets/Images/home_logo.png";
+const homeLogo = "/assets/Images/foto_home.png";
 
 const HomeLayout = () => {
   return (

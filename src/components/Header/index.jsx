@@ -2,7 +2,7 @@ import React from "react";
 import { faTruckFast } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const headerLogo = "/assets/Images/logo-header.png";
+const headerLogo = "/assets/Images/logoheader.png";
 
 const Header = () => {
   return (

@@ -2,6 +2,7 @@ import React, { useState, useEffect, useMemo } from "react";
 import TruckCarouselDisplay from "../TruckCarouselDisplay";
 import BrandFilter from "../BrandFilter";
 import Pagination from "../Pagination";
+import { Apiurl } from "../../../serve";
 
 const TruckCarouselLogic = ({ onDataChange }) => {
   const [filteredCards, setFilteredCards] = useState([]);
@@ -13,14 +14,18 @@ const TruckCarouselLogic = ({ onDataChange }) => {
 
   useEffect(() => {
     const fetchProducts = async () => {
+      const url = Apiurl;
       try {
-        const response = await fetch(`${process.env.REACT_APP_API_URL}/productos`);
+        const response = await fetch(url);
         if (!response.ok) {
           throw new Error("Error fetching products");
         }
         const data = await response.json();
-        setCarBrands(data);
-        const brands = Array.from(new Set(data.map((item) => item.brand)));
+
+        const products = data.data;
+        setCarBrands(products);
+
+        const brands = Array.from(new Set(products.map((item) => item.brand)));
         setUniqueBrands(brands);
       } catch (error) {
         console.error("Error fetching products:", error);

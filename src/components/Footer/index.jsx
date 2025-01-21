@@ -1,5 +1,5 @@
 import React from "react";
-const headerLogo = "/assets/Images/logo-header.png";
+const headerLogo = "/assets/Images/logoheader.png";
 
 const Footer = () => {
   return (

@@ -1,10 +1,10 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"], // Asegúrate de que tus archivos JS/TS estén incluidos
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
       colors: {
-        customBlue: '#15273B', // Color personalizado que ya tienes
+        customBlue: '#15273B', 
       },
      
     },
