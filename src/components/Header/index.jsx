@@ -1,10 +1,14 @@
 import React from "react";
 import { faTruckFast } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
+import { useNavigate } from "react-router-dom";
 const headerLogo = "/assets/Images/logoheader.png";
 
 const Header = () => {
+  const navigate = useNavigate();
+  const handleIconClick = () => {
+    navigate("/ADM-CRUD");
+  };
   return (
     <header className=" bg-white bg-gradient-to-r from-[#0f172a]  to-[#334155]">
       <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
@@ -26,36 +30,36 @@ const Header = () => {
                   href="#inicio"
                   className="inline-block border-e px-4 py-2 text-sm font-medium text-white hover:bg-gray-500 focus:relative relative group"
                 >
-                  First
+                  Incio
                 </a>
                 <a
                   href="#productos"
                   className="inline-block border-e px-4 py-2 text-sm font-medium text-white hover:bg-gray-500 focus:relative relative group"
                 >
-                  Second
+                  Productos
                 </a>
                 <a
                   href="#sobreNosotros"
                   className="inline-block border-e px-4 py-2 text-sm font-medium text-white hover:bg-gray-500 focus:relative relative group"
                 >
-                  Third
+                  Contactanos
                 </a>
                 <a
                   href="#Recommendations"
                   className="inline-block px-4 py-2 text-sm font-medium text-white hover:bg-gray-500 focus:relative relative group"
                 >
-                  Fourth
+                  Nosotros
                 </a>
               </span>
             </nav>
           </div>
 
-          {/* User Profile / Icon Section */}
           <div className="flex items-center justify-end flex-1">
             <div className="relative">
               <FontAwesomeIcon
                 icon={faTruckFast}
-                className="text-3xl text-white"
+                className="text-3xl text-white cursor-pointer"
+                onClick={handleIconClick}
               />
             </div>
           </div>

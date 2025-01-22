@@ -15,7 +15,6 @@ const ContactForm = () => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
 
-    // Limpiar error del campo al escribir
     if (errors[name]) {
       setErrors({ ...errors, [name]: null });
     }
@@ -46,14 +45,20 @@ const ContactForm = () => {
     setErrors(newErrors);
 
     if (Object.keys(newErrors).length === 0) {
-      alert("Formulario enviado con éxito.");
-      // Aquí puedes manejar el envío del formulario, como enviarlo a un backend.
+      const email = "alejandroamayac8@gmail.com";
+      const subject = `Contacto de ${formData.nombre}`;
+      const body = `Hola,\n\nMi nombre es ${formData.nombre}, mi celular es ${formData.celular}, y mi correo es ${formData.correo}.\n\nSaludos.`;
+
+      const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(
+        email
+      )}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+      window.open(gmailLink, "_blank");
     }
   };
 
   return (
     <div className="flex flex-col md:flex-row mx-auto p-20 max-w-7xl h-auto md:h-screen">
-      {/* Formulario siempre visible */}
       <div className="w-full md:w-1/2 bg-gray-900 rounded-md m-2 p-4 md:p-8 flex-1">
         <div className="flex flex-col bg-gray-900 rounded-lg p-8 md:p-16 h-full">
           <h2 className="text-white text-center font-bold text-xl md:text-2xl mb-2 md:mb-4">
@@ -123,13 +128,13 @@ const ContactForm = () => {
           ></div>
 
           <div className="flex flex-col gap-4 md:gap-6">
-            <span className="text-md md:text-xl text-center text-white">
+            <span className="text-md md:text-lg text-center text-white">
               Déjanos tus datos, pronto nos pondremos en contacto
             </span>
 
             <button
               onClick={handleSubmit}
-              className="bg-gradient-to-r from-blue-500 to-blue-700 hover:from-blue-600 hover:to-blue-800 text-white font-bold py-3 px-6 rounded-full shadow-lg transform transition-all duration-500 ease-in-out hover:scale-110 hover:brightness-110 hover:animate-pulse active:animate-bounce"
+              className="bg-gradient-to-r from-blue-500 to-blue-700 hover:from-blue-600 hover:to-blue-800 text-white font-bold py-3 px-6 rounded-lg shadow-lg transform transition-all duration-500 ease-in-out hover:scale-110 hover:brightness-110 hover:animate-pulse active:animate-bounce"
             >
               Enviar
             </button>

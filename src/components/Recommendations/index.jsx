@@ -1,8 +1,8 @@
 import React from "react";
 
 const user = "/assets/Images/user.png";
-const HomeLogo = "assets/Images/home_Logo.png";
-const HomeLogo2 = "assets/Images/suzuki.jfif";
+const HomeLogo = "assets/Images/toyota.jpg";
+const HomeLogo2 = "assets/Images/toyota.jpg";
 const HomeLogo3 = "assets/Images/toyota.jpg";
 
 const Recommendations = () => {
