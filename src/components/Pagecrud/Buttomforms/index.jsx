@@ -8,7 +8,6 @@ const Buttomforms = () => {
     brand: "",
     image: "",
     urlFichaTecnica: "",
-    feedback: "",
   });
 
   const handleInputChange = (e) => {
@@ -25,7 +24,7 @@ const Buttomforms = () => {
       brand: "",
       image: "",
       urlFichaTecnica: "",
-      feedback: "",
+      
     });
     setFormVisible(false);
   };
@@ -49,7 +48,7 @@ const Buttomforms = () => {
             </h2>
             <form onSubmit={handleSubmit} className="flex flex-col space-y-3">
               <input
-                placeholder="Nombre Completo"
+                placeholder="Nombre del vehiculo"
                 className="bg-gray-100 text-gray-800 border-0 rounded-md p-2 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
                 type="text"
                 name="title"
@@ -58,42 +57,32 @@ const Buttomforms = () => {
                 required
               />
               <input
-                placeholder="Email"
+                placeholder="Marca del Vehiculo"
                 className="bg-gray-100 text-gray-800 border-0 rounded-md p-2 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
-                type="email"
+                type="text"
                 name="brand"
                 value={formData.brand}
                 onChange={handleInputChange}
                 required
               />
-              <select
+                  <input
+                placeholder="Url de la imagen"
                 className="bg-gray-100 text-gray-800 border-0 rounded-md p-2 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
+                type="text"
                 name="image"
                 value={formData.image}
                 onChange={handleInputChange}
                 required
-              >
-                <option value="product-1">Producto 1</option>
-                <option value="product-2">Producto 2</option>
-                <option value="product-3">Producto 3</option>
-              </select>
-              <input
-                placeholder="Calificación (1-5)"
+              />
+                  <input
+                placeholder="Ficha tecnica"
                 className="bg-gray-100 text-gray-800 border-0 rounded-md p-2 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
-                type="number"
-                name="urlFichaTecnica"
+                type="text"
+                name="brand"
                 value={formData.urlFichaTecnica}
                 onChange={handleInputChange}
                 required
               />
-              <textarea
-                placeholder="Comentarios"
-                className="bg-gray-100 text-gray-800 border-0 rounded-md p-2 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-green-500 transition ease-in-out duration-150"
-                name="feedback"
-                value={formData.feedback || ""}
-                onChange={handleInputChange}
-                required
-              ></textarea>
 
               <button
                 type="submit"

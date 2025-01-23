@@ -35,6 +35,27 @@ const Productcrud = () => {
     fetchCarBrands();
   }, []);
 
+  const handleDelete = async (id) => {
+    const deleteUrl = process.env.REACT_APP_API_URL_DELETE;
+    try {
+      const response = await fetch(`${deleteUrl}?id=${id}`, {
+        method: "DELETE", 
+      });
+      if (!response.ok) {
+        throw new Error("Error eliminando el producto");
+      }
+      
+      const jsonResponse = await response.json();
+      if (jsonResponse.status === "success") {
+        setCarBrands(carBrands.filter((car) => car.id !== id));
+      } else {
+        throw new Error("Error en la respuesta de la API");
+      }
+    } catch (err) {
+      setError(err.message);
+    }
+  };
+
   return (
     <div className="flex flex-col justify-center items-center">
       <div className="flex justify-center items-center w-full max-w-[90%] md:max-w-[80%] lg:max-w-[90%] gap-4">
@@ -51,9 +72,7 @@ const Productcrud = () => {
                   className="relative flex flex-col rounded-xl bg-white bg-clip-border text-gray-900 shadow-md m-4"
                 >
                   <div className="relative  overflow-hidden rounded-lg bg-blue-gray-900 bg-clip-border text-white bg-gray-900">
-                    <p className="block  text-center leading-relaxed ">
-                      {car.brand}
-                    </p>
+                    <p className="block  text-center leading-relaxed ">{car.brand}</p>
                     <img
                       src={car.image}
                       alt={car.title}
@@ -66,7 +85,10 @@ const Productcrud = () => {
                     </h5>
                   </div>
                   <div className="p-4 pt-0 flex justify-center">
-                    <button className=" bg-red-500 text-white py-2 px-24  rounded-lg">
+                    <button
+                      className="bg-red-500 text-white py-2 px-24 rounded-lg"
+                      onClick={() => handleDelete(car.id)} // Al hacer clic, eliminamos el producto
+                    >
                       Eliminar
                     </button>
                   </div>
