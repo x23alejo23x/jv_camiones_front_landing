@@ -1,22 +1,25 @@
 import React, { useState } from 'react';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { useNavigate } from 'react-router-dom'; // Importa useNavigate
+import { useNavigate } from 'react-router-dom';
+import { loginadm } from "../../serve";
+
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
-  const navigate = useNavigate(); // Inicializa useNavigate
+  const navigate = useNavigate(); 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Inicia la carga mientras se hace la solicitud
+    const login = loginadm;
+
     setLoading(true);
 
     try {
-      const response = await fetch('http://localhost/jv_camiones_back-php/api/login.php', {
+      const response = await fetch(login, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
