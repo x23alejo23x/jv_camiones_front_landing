@@ -10,10 +10,14 @@ const Pagecrud = () => {
         <Header />
       </div>
 
-      <div className="text-center my-6">
-        <h1 className="text-3xl font-bold text-gray-800">Título Centrado</h1>
-        <p className="text-gray-600 mt-2">
-          Este es un párrafo centrado que describe brevemente la sección.
+      <div className="text-center my-6 animate__animated animate__fadeIn">
+        <h1 className="text-4xl font-extrabold text-gray-900 dark:text-blue-900 transition-transform transform hover:scale-105">
+          ADMINISTRADOR DE PRODUCTOS
+        </h1>
+        <p className="text-lg text-gray-900 dark:text-gray-800 mt-3 max-w-2xl mx-auto">
+          Gestiona los productos de la web{" "}
+          <span className="font-semibold text-blue-600">jvcamiones</span>. Aquí
+          puedes crear y eliminar productos con facilidad.
         </p>
       </div>
 

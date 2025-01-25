@@ -1,16 +1,18 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from '../src/views/Home';           
-import NewView from './views/Crudadm';     
+import { BrowserRouter as BrowserRouter, Routes, Route } from 'react-router-dom';
+import Home from './views/Home';           
+import NewView from './views/Crudadm';  
+import Logincrud from './views/Logincrud';   
 
 function App() {
   return (
-    <Router>
+    <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/ADM-CRUD" element={<NewView />} />
+        <Route path="/Login" element={<Logincrud />} />
       </Routes>
-    </Router>
+    </BrowserRouter>
   );
 }
 
