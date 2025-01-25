@@ -18,7 +18,10 @@ const Header = () => {
             <img
               src={headerLogo}
               alt="Camiones"
-              className="h-12 w-auto"
+              className="h-12 w-auto cursor-pointer"
+              onClick={() =>
+                (window.location.href = "https://elmandeloscamiones.com/")
+              }
               style={{ filter: "invert(1)" }}
             />
           </div>

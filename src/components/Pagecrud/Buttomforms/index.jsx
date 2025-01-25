@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { createforms } from "../../../serve";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const Buttomforms = () => {
   const [formVisible, setFormVisible] = useState(false);
   const [formData, setFormData] = useState({
@@ -15,23 +19,49 @@ const Buttomforms = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Formulario enviado con los siguientes datos:", formData);
-    alert("Formulario enviado");
+    const urlcreate = createforms;
+
+    try {
+      const response = await fetch(urlcreate, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error(`Error ${response.status}: No se pudo enviar los datos.`);
+      }
+
+      const result = await response.json();
+
+      if (result.status !== "success") {
+        throw new Error(result.data?.message || "Error al enviar los datos.");
+      }
+
+      toast.success(result.data.message || "Producto creado exitosamente.");
+    } catch (error) {
+      console.error("Error al enviar los datos:", error);
+      toast.error(
+        error.message || "Hubo un problema al crear el producto. Por favor, inténtalo de nuevo."
+      );
+    }
+
     setFormData({
       title: "",
       brand: "",
       image: "",
       urlFichaTecnica: "",
-      
     });
     setFormVisible(false);
   };
 
   return (
-    <div className="flex flex-col items-center h-auto p-4 ">
-      <div className="w-full flex justify-end  mb-4">
+    <div className="flex flex-col items-center h-auto p-4">
+      <div className="w-full flex justify-end mb-4">
         <button
           onClick={() => setFormVisible(true)}
           className="bg-green-500 text-white p-3 rounded-full"
@@ -48,7 +78,7 @@ const Buttomforms = () => {
             </h2>
             <form onSubmit={handleSubmit} className="flex flex-col space-y-3">
               <input
-                placeholder="Nombre del vehiculo"
+                placeholder="Nombre del producto"
                 className="bg-gray-100 text-gray-800 border-0 rounded-md p-2 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
                 type="text"
                 name="title"
@@ -57,7 +87,7 @@ const Buttomforms = () => {
                 required
               />
               <input
-                placeholder="Marca del Vehiculo"
+                placeholder="Marca del producto"
                 className="bg-gray-100 text-gray-800 border-0 rounded-md p-2 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
                 type="text"
                 name="brand"
@@ -65,8 +95,8 @@ const Buttomforms = () => {
                 onChange={handleInputChange}
                 required
               />
-                  <input
-                placeholder="Url de la imagen"
+              <input
+                placeholder="URL de la imagen"
                 className="bg-gray-100 text-gray-800 border-0 rounded-md p-2 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
                 type="text"
                 name="image"
@@ -74,11 +104,11 @@ const Buttomforms = () => {
                 onChange={handleInputChange}
                 required
               />
-                  <input
-                placeholder="Ficha tecnica"
+              <input
+                placeholder="URL de la ficha técnica"
                 className="bg-gray-100 text-gray-800 border-0 rounded-md p-2 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
                 type="text"
-                name="brand"
+                name="urlFichaTecnica"
                 value={formData.urlFichaTecnica}
                 onChange={handleInputChange}
                 required
@@ -100,6 +130,18 @@ const Buttomforms = () => {
           </div>
         </div>
       )}
+
+      <div className="fixed inset-0 z-50 flex items-center justify-center pointer-events-none">
+        <ToastContainer
+          position="bottom-center"
+          autoClose={3000}
+          hideProgressBar
+          closeButton={false}
+          newestOnTop
+          rtl={false}
+          limit={1}
+        />
+      </div>
     </div>
   );
 };

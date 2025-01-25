@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Apiurl } from "../../../serve";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Productcrud = () => {
   const [carBrands, setCarBrands] = useState([]);
@@ -9,6 +11,7 @@ const Productcrud = () => {
   useEffect(() => {
     const fetchCarBrands = async () => {
       const url = Apiurl;
+      console.log("API  URL:", Apiurl);
       try {
         const response = await fetch(url);
         if (!response.ok) {
@@ -48,11 +51,13 @@ const Productcrud = () => {
       const jsonResponse = await response.json();
       if (jsonResponse.status === "success") {
         setCarBrands(carBrands.filter((car) => car.id !== id));
+        toast.error("Producto eliminado exitosamente.");
       } else {
         throw new Error("Error en la respuesta de la API");
       }
     } catch (err) {
       setError(err.message);
+      toast.warn(err.message || "Hubo un problema al eliminar el producto.");
     }
   };
 
@@ -71,8 +76,8 @@ const Productcrud = () => {
                   key={car.id}
                   className="relative flex flex-col rounded-xl bg-white bg-clip-border text-gray-900 shadow-md m-4"
                 >
-                  <div className="relative  overflow-hidden rounded-lg bg-blue-gray-900 bg-clip-border text-white bg-gray-900">
-                    <p className="block  text-center leading-relaxed ">{car.brand}</p>
+                  <div className="relative overflow-hidden rounded-lg bg-blue-gray-900 bg-clip-border text-white bg-gray-900">
+                    <p className="block text-center leading-relaxed ">{car.brand}</p>
                     <img
                       src={car.image}
                       alt={car.title}
@@ -87,7 +92,7 @@ const Productcrud = () => {
                   <div className="p-4 pt-0 flex justify-center">
                     <button
                       className="bg-red-500 text-white py-2 px-24 rounded-lg"
-                      onClick={() => handleDelete(car.id)} // Al hacer clic, eliminamos el producto
+                      onClick={() => handleDelete(car.id)} 
                     >
                       Eliminar
                     </button>
@@ -97,6 +102,18 @@ const Productcrud = () => {
             </div>
           </div>
         )}
+      </div>
+      
+      <div className="fixed inset-0 z-50 flex items-center justify-center pointer-events-none">
+        <ToastContainer
+          position="bottom-center"
+          autoClose={3000}
+          hideProgressBar
+          closeButton={false}
+          newestOnTop
+          rtl={false}
+          limit={1}
+        />
       </div>
     </div>
   );

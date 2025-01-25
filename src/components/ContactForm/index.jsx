@@ -60,7 +60,7 @@ const ContactForm = () => {
   return (
     <div className="flex flex-col md:flex-row mx-auto p-20 max-w-7xl h-auto md:h-screen">
       <div className="w-full md:w-1/2 bg-gray-900 rounded-md m-2 p-4 md:p-8 flex-1">
-        <div className="flex flex-col bg-gray-900 rounded-lg p-8 md:p-16 h-full">
+        <div className="flex flex-col items-center justify-center bg-gray-900 rounded-lg p-8 md:p-16 h-full">
           <h2 className="text-white text-center font-bold text-xl md:text-2xl mb-2 md:mb-4">
             Contáctanos
           </h2>
