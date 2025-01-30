@@ -56,11 +56,9 @@ const Login = () => {
       >
         <div className="px-8 py-10 md:px-10">
           <h2 className="text-4xl font-extrabold text-center text-zinc-800 dark:text-white">
-            Welcome Back!
+            Administrador jv
           </h2>
-          <p className="text-center text-zinc-600 dark:text-zinc-400 mt-3">
-            We missed you, sign in to continue.
-          </p>
+          
           <div className="mt-10">
             <div className="relative">
               <label

@@ -1,9 +1,9 @@
 import React from "react";
 
 const user = "/assets/Images/user.png";
-const HomeLogo = "assets/Images/toyota.jpg";
-const HomeLogo2 = "assets/Images/toyota.jpg";
-const HomeLogo3 = "assets/Images/toyota.jpg";
+const HomeLogo = "assets/Images/cliente1.jpg";
+const HomeLogo2 = "assets/Images/cliente2.jpg";
+const HomeLogo3 = "assets/Images/cliente3.jpg";
 
 const Recommendations = () => {
   const cards = [
@@ -54,13 +54,14 @@ const Recommendations = () => {
           </h2>
         </div>
 
-        {/* Párrafo */}
         <p className="text-white text-lg leading-relaxed text-justify">
-          Este es un texto detallado sobre la recomendación. Aquí puedes añadir
-          información que describa por qué este contenido es especial y cómo
-          puede ser útil para los usuarios. Este texto permite mostrar las
-          características únicas de los servicios ofrecidos.
-        </p>
+  En <strong>El Man de los Camiones</strong>, creemos en la <strong>confianza</strong> como el pilar fundamental de cada negocio. 
+   asegurando que cada vehículo cumpla con los más altos estándares de calidad y <strong>Garantía</strong>. 
+  Nos destacamos por nuestra <strong>transparencia</strong> en cada transacción, proporcionando información clara y detallada sobre cada camión, 
+  su historial y sus características.
+</p>
+
+
 
         {/* Estrellas Interactivas */}
         <div className="flex items-center space-x-2">
@@ -80,13 +81,14 @@ const Recommendations = () => {
             <img
               src={HomeLogo}
               alt="Recomendación pequeña"
-              className="w-40 h-auto rounded-lg shadow-lg object-cover"
+              className="w-40 h-60 rounded-lg shadow-lg object-cover"
             />
             <img
-              src={HomeLogo}
+              src={HomeLogo3}
               alt="Recomendación pequeña"
-              className="w-40 h-auto rounded-lg shadow-lg object-cover"
+              className="w-40 h-60 rounded-lg shadow-lg object-cover"
             />
+          
           </div>
         </div>
       </div>

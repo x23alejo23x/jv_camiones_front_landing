@@ -18,7 +18,7 @@ const Footer = () => {
         {/* Texto centrado */}
         <div className="text-center">
           <p className="text-sm">
-            &copy; 2025 JV Camiones. Todos los derechos reservados.
+            &copy; 2025 El man de los camiones. Todos los derechos reservados.
           </p>
         </div>
 
@@ -26,24 +26,33 @@ const Footer = () => {
         <div className="flex justify-center md:justify-end">
           <ul className="flex space-x-4">
             {/* Botón de Facebook */}
-            <li className="group relative  rounded-full w-12 h-12 text-lg flex justify-center items-center shadow-lg cursor-pointer transition-all duration-200 hover:bg-blue-600">
-              <span className="absolute bottom-full mb-2 text-sm bg-black text-white  px-2 py-1 rounded-md shadow-lg opacity-0 transition-all duration-200 group-hover:opacity-100">
+            <li
+              className="group relative rounded-full w-12 h-12 text-lg flex justify-center items-center shadow-lg cursor-pointer transition-all duration-200 hover:bg-blue-600"
+              onClick={() => window.open("https://www.facebook.com/profile.php?id=61553250650418", "_blank")}
+            >
+              <span className="absolute bottom-full mb-2 text-sm bg-black text-white px-2 py-1 rounded-md shadow-lg opacity-0 transition-all duration-200 group-hover:opacity-100">
                 Facebook
               </span>
               <i className="fab fa-facebook-f text-blue-600 group-hover:text-white"></i>
             </li>
 
-            {/* Botón de Twitter */}
-            <li className="group relative  rounded-full w-12 h-12 text-lg flex justify-center items-center shadow-lg cursor-pointer transition-all duration-200 hover:bg-blue-400">
+            {/* Botón de TikTok */}
+            <li
+              className="group relative rounded-full w-12 h-12 text-lg flex justify-center items-center shadow-lg cursor-pointer transition-all duration-200 hover:bg-slate-800"
+              onClick={() => window.open("https://www.tiktok.com/@josecamionesv?_t=ZS-8tU2576dUw5&_r=1", "_blank")}
+            >
               <span className="absolute bottom-full mb-2 text-sm bg-black text-white px-2 py-1 rounded-md shadow-lg opacity-0 transition-all duration-200 group-hover:opacity-100">
-                Twitter
+                TikTok
               </span>
-              <i className="fab fa-twitter text-blue-400 group-hover:text-white"></i>
+              <i className="fa-brands fa-tiktok hover:text-[#282828] group-hover:text-white"></i>
             </li>
 
             {/* Botón de Instagram */}
-            <li className="group relative  rounded-full w-12 h-12 text-lg flex justify-center items-center shadow-lg cursor-pointer transition-all duration-200 hover:bg-pink-500">
-              <span className="absolute bottom-full mb-2 text-sm bg-black text-white  px-2 py-1 rounded-md shadow-lg opacity-0 transition-all duration-200 group-hover:opacity-100">
+            <li
+              className="group relative rounded-full w-12 h-12 text-lg flex justify-center items-center shadow-lg cursor-pointer transition-all duration-200 hover:bg-pink-500"
+              onClick={() => window.open("https://www.instagram.com/elmadeloscamiones/", "_blank")}
+            >
+              <span className="absolute bottom-full mb-2 text-sm bg-black text-white px-2 py-1 rounded-md shadow-lg opacity-0 transition-all duration-200 group-hover:opacity-100">
                 Instagram
               </span>
               <i className="fab fa-instagram text-pink-500 group-hover:text-white"></i>

@@ -1,7 +1,7 @@
 import React from "react";
 
 const TruckCarouselDisplay = ({ cardsToShow = [] }) => {
-  const whatsappLink = "https://wa.me/1234567890";
+  const whatsappLink = "https://api.whatsapp.com/send/?phone=573005928483&text&type=phone_number&app_absent=0";
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
