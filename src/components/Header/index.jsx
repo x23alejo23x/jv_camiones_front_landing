@@ -42,13 +42,13 @@ const Header = () => {
                   Productos
                 </a>
                 <a
-                  href="#sobreNosotros"
+                  href="#Contactanos"
                   className="inline-block border-e px-4 py-2 text-sm font-medium text-white hover:bg-gray-500 focus:relative relative group"
                 >
                   Contactanos
                 </a>
                 <a
-                  href="#Recommendations"
+                  href="#Nosotros"
                   className="inline-block px-4 py-2 text-sm font-medium text-white hover:bg-gray-500 focus:relative relative group"
                 >
                   Nosotros

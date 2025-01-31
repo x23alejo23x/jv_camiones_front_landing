@@ -1,94 +1,106 @@
-import React from "react";
+import React, { useState } from "react";
 
 const user = "/assets/Images/user.png";
-const HomeLogo = "assets/Images/cliente1.jpg";
-const HomeLogo2 = "assets/Images/cliente2.jpg";
-const HomeLogo3 = "assets/Images/cliente3.jpg";
+const HomeLogo = "/assets/Images/cliente1.jpg";
+const HomeLogo2 = "/assets/Images/cliente2.jpg";
+const HomeLogo3 = "/assets/Images/cliente3.jpg";
 
 const Recommendations = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
   const cards = [
-    { image: HomeLogo, text: "Garantía" },
-    { image: HomeLogo2, text: "Confianza" },
-    { image: HomeLogo3, text: "Transparencia" },
+    { image: HomeLogo },
+    { image: HomeLogo2 },
+    { image: HomeLogo3 },
   ];
 
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % cards.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + cards.length) % cards.length);
+  };
+
   return (
-    <div className="min-h-screen p-10 space-y-10 md:flex md:space-y-0 md:space-x-10">
-      {/* Sección Izquierda oculta en pantallas pequeñas */}
-      <div className="flex-1 justify-center items-center hidden md:flex">
-        <div className="md:flex w-[500px] h-[354px] bw-full rounded-lg shadow-[0px_3px_160px_15px_rgba(123,_155,_231,_0.93)]">
-          {cards.map((card, index) => (
-            <div
-              key={index}
-              className="flex-1 h-full overflow-hidden cursor-pointer rounded-lg transition-all duration-1000 border border-[#b3b3b3] flex justify-center items-center hover:flex-[2] hover:shadow-neon-blue relative"
-            >
-              {/* Fondo gris con mensaje */}
-              <div className="absolute inset-0 flex justify-center items-center bg-gray-800 text-white text-lg font-semibold transition-opacity duration-500 hover:opacity-0">
-                <span>{card.text}</span>
-              </div>
-              {/* Imagen */}
-              <div
-                className="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 opacity-0 hover:opacity-100"
-                style={{
-                  backgroundImage: `url(${card.image})`,
-                }}
-              ></div>
+    <div
+      id="Nosotros"
+      className="bg-gray-500 py-6 flex justify-center items-center"
+    >
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-full flex flex-col md:flex-row items-center space-y-8 md:space-y-0 md:space-x-10">
+        {/* Sección Derecha */}
+        <div className="flex-1 flex flex-col justify-center items-center space-y-8">
+          {/* Imagen y Título */}
+          <div className="flex flex-col items-center space-y-4">
+            <div className="rounded-full overflow-hidden shadow-lg w-16 h-16 sm:w-20 sm:h-20">
+              <img
+                src={user}
+                alt="Foto pequeña"
+                className="w-full h-full object-cover"
+              />
             </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Sección Derecha */}
-      <div className="flex-1 flex flex-col justify-center space-y-8">
-        {/* Imagen y Título */}
-        <div className="flex flex-col items-center space-y-4">
-          <div className="rounded-full overflow-hidden shadow-lg w-16 h-16 md:w-20 md:h-20">
-            <img
-              src={user}
-              alt="Foto pequeña"
-              className="w-full h-full object-cover"
-            />
+            <h2 className="text-3xl sm:text-4xl font-bold text-white text-center">
+              Nuestros Testimonios
+            </h2>
           </div>
-          <h2 className="text-4xl font-bold text-white text-center">
-            Nuestros Testimonios
-          </h2>
+
+          <p className="text-white text-sm sm:text-base leading-relaxed text-justify">
+            En <strong>El Man de los Camiones</strong>, creemos en la{" "}
+            <strong>confianza</strong> como el pilar fundamental de cada
+            negocio, asegurando que cada vehículo cumpla con los más altos
+            estándares de calidad y <strong>Garantía</strong>. Nos destacamos
+            por nuestra <strong>transparencia</strong> en cada transacción,
+            proporcionando información clara y detallada sobre cada camión, su
+            historial y sus características.
+          </p>
+
+          {/* Estrellas Interactivas */}
+          <div className="flex items-center space-x-2">
+            {[1, 2, 3, 4, 5].map((star) => (
+              <button
+                key={star}
+                className="text-yellow-500 hover:scale-125 transform transition-transform duration-150 text-3xl"
+              >
+                ★
+              </button>
+            ))}
+          </div>
         </div>
 
-        <p className="text-white text-lg leading-relaxed text-justify">
-  En <strong>El Man de los Camiones</strong>, creemos en la <strong>confianza</strong> como el pilar fundamental de cada negocio. 
-   asegurando que cada vehículo cumpla con los más altos estándares de calidad y <strong>Garantía</strong>. 
-  Nos destacamos por nuestra <strong>transparencia</strong> en cada transacción, proporcionando información clara y detallada sobre cada camión, 
-  su historial y sus características.
-</p>
-
-
-
-        {/* Estrellas Interactivas */}
-        <div className="flex items-center space-x-2">
-          {[1, 2, 3, 4, 5].map((star) => (
-            <button
-              key={star}
-              className="text-yellow-500 hover:scale-125 transform transition-transform duration-150 text-3xl"
+        {/* Sección Izquierda con carrusel */}
+        <div className="flex-1 flex justify-center items-center w-full p-12">
+          <div className="relative w-full h-[300px] sm:h-[400px] lg:h-[500px] overflow-hidden rounded-lg shadow-lg">
+            <div
+              className="absolute inset-0 flex transition-transform duration-1000"
+              style={{
+                transform: `translateX(-${currentSlide * 100}%)`,
+              }}
             >
-              ★
-            </button>
-          ))}
-        </div>
+              {cards.map((card, index) => (
+                <div
+                  key={index}
+                  className="flex-shrink-0 w-full h-full bg-cover bg-center"
+                  style={{
+                    backgroundImage: `url(${card.image})`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                  }}
+                ></div>
+              ))}
+            </div>
 
-        {/* Imagen pequeña debajo de las estrellas solo en dispositivos móviles */}
-        <div className="mb-2">
-          <div className="flex justify-center mt-6 md:hidden space-x-4">
-            <img
-              src={HomeLogo}
-              alt="Recomendación pequeña"
-              className="w-40 h-60 rounded-lg shadow-lg object-cover"
-            />
-            <img
-              src={HomeLogo3}
-              alt="Recomendación pequeña"
-              className="w-40 h-60 rounded-lg shadow-lg object-cover"
-            />
-          
+            {/* Botones de navegación */}
+            <button
+              onClick={prevSlide}
+              className="absolute left-0 top-1/2 transform -translate-y-1/2 text-white p-2 rounded-full"
+            >
+              &#10094;
+            </button>
+            <button
+              onClick={nextSlide}
+              className="absolute right-0 top-1/2 transform -translate-y-1/2 text-white p-2 rounded-full"
+            >
+              &#10095;
+            </button>
           </div>
         </div>
       </div>
