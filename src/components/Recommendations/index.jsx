@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const user = "/assets/Images/user.png";
 const HomeLogo = "/assets/Images/cliente1.jpg";
@@ -13,13 +13,18 @@ const Recommendations = () => {
     { image: HomeLogo3 },
   ];
 
+  // Función para pasar a la siguiente imagen
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % cards.length);
   };
 
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + cards.length) % cards.length);
-  };
+  // Establecer el intervalo para el carrusel
+  useEffect(() => {
+    const interval = setInterval(nextSlide, 3000); // Cambiar imagen cada 3 segundos
+
+    // Limpiar el intervalo cuando el componente se desmonte
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div
@@ -45,20 +50,27 @@ const Recommendations = () => {
 
           <p className="text-white text-sm sm:text-base leading-relaxed text-justify">
             En <strong>El Man de los Camiones</strong>, creemos en la{" "}
-            <strong>confianza</strong> como el pilar fundamental de cada
-            negocio, asegurando que cada vehículo cumpla con los más altos
-            estándares de calidad y <strong>Garantía</strong>. Nos destacamos
-            por nuestra <strong>transparencia</strong> en cada transacción,
-            proporcionando información clara y detallada sobre cada camión, su
-            historial y sus características.
+            <strong className="text-blue-600">confianza</strong> como el pilar
+            fundamental de cada negocio, asegurando que cada vehículo cumpla con
+            los más altos estándares de calidad y{" "}
+            <strong className="text-blue-600">Garantía</strong>. Nos destacamos
+            por nuestra <strong className="text-blue-600">transparencia</strong>
+            en cada transacción, proporcionando información clara y detallada sobre
+            cada camión, su historial y sus características.{" "}
+            <span role="img" aria-label="truck" className="ml-2 text-green-500">
+              🚚
+            </span>
           </p>
 
           {/* Estrellas Interactivas */}
           <div className="flex items-center space-x-2">
-            {[1, 2, 3, 4, 5].map((star) => (
+            {[1, 2, 3, 4, 5].map((star, index) => (
               <button
                 key={star}
-                className="text-yellow-500 hover:scale-125 transform transition-transform duration-150 text-3xl"
+                className={`text-yellow-500 hover:scale-125 transform transition-transform duration-150 text-3xl animate-jump`}
+                style={{
+                  animationDelay: `${index * 0.1}s`,
+                }}
               >
                 ★
               </button>
@@ -90,7 +102,7 @@ const Recommendations = () => {
 
             {/* Botones de navegación */}
             <button
-              onClick={prevSlide}
+              onClick={() => setCurrentSlide((prev) => (prev - 1 + cards.length) % cards.length)}
               className="absolute left-0 top-1/2 transform -translate-y-1/2 text-white p-2 rounded-full"
             >
               &#10094;

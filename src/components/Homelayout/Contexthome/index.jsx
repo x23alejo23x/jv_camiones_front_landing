@@ -17,41 +17,57 @@ const HomeLayout = () => {
       >
         <div className="flex container mx-auto px-4 sm:px-6 lg:px-8 max-w-full flex-col md:flex-row items-center justify-center space-y-8 md:space-y-0 md:space-x-10 h-auto md:h-screen">
           <div className="w-full md:w-1/2 mb-8 md:mb-0 text-center md:text-left">
-            <h1 className="text-4xl md:text-6xl  text-center font-medium text-transparent bg-clip-text bg-gradient-to-r text-white mb-8">
-              <span className="text-black  "></span> EL MAN <br /> DE LOS
-              CAMIONES
+            <h1 className="text-4xl md:text-6xl text-center font-medium text-transparent bg-clip-text bg-gradient-to-r text-white mb-8">
+              <span className="text-white">
+                EL{" "}
+                <span
+                  className="text-blue-800 font-extrabold transform transition-all duration-300 hover:scale-110"
+                  style={{ fontFamily: "Dancing Script, cursive" }}
+                >
+                  MAN
+                </span>
+                <br /> DE LOS CAMIONES
+              </span>
             </h1>
 
             <hr className="border-gray-300 mb-4 md:mb-8" />
             <p className="text-white mb-10 text-justify text-sm md:text-base">
-              En{" "}
-              <span className="text-blue-500 font-semibold">
-                nuestra empresa
-              </span>
-              , nos enorgullece ofrecer una amplia gama de camiones de{" "}
-              <span className="text-blue-500 font-semibold">alta calidad</span>{" "}
-              diseñados para satisfacer todas tus necesidades de transporte. Con
-              años de experiencia en la industria, entendemos la importancia de
-              contar con vehículos confiables y eficientes que impulsen tu
-              negocio.
-            </p>
+  <span className="text-blue-500 font-semibold">En nuestra empresa</span>, 
+  nos enorgullece ofrecer una amplia gama de camiones de{" "}
+  <span className="text-blue-500 font-semibold">alta calidad</span> diseñados 
+  para satisfacer todas tus necesidades de transporte. Con años de experiencia 
+  en la industria, entendemos la importancia de contar con vehículos{" "}
+  <span className="text-blue-500 font-semibold">confiables</span> y{" "}
+  <span className="text-blue-500 font-semibold">eficientes</span> que impulsan tu 
+  negocio.{" "}
+  <span role="img" aria-label="truck" className="text-blue-500 ml-2">🚚</span>
+</p>
+
 
             <div className="flex justify-center">
-              <a
+              <motion.a
                 href="https://api.whatsapp.com/send/?phone=573005928483&text&type=phone_number&app_absent=0"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center px-12 md:px-16 py-3 md:py-4 bg-green-500 text-white text-base md:text-lg rounded-xl shadow-lg cursor-pointer transition-transform duration-300 ease-in-out hover:scale-105 active:scale-95 relative group"
+                className="inline-flex items-center px-12 md:px-16 py-3 md:py-4 bg-green-500 text-white text-base md:text-lg rounded-xl shadow-lg cursor-pointer relative"
+                initial={{ scale: 1 }}
+                animate={{ scale: [1, 1.05, 1] }}
+                transition={{
+                  duration: 3,
+                  ease: "easeInOut",
+                  repeat: Infinity,
+                  repeatDelay: 0.5,
+                }}
               >
-                <span className="absolute inset-0 rounded-xl bg-gradient-to-r from-green-400 via-green-500 to-green-600 p-[2px] opacity-0 transition-opacity duration-500 group-hover:opacity-100"></span>
-                <span className="absolute inset-0 rounded-xl bg-transparent border-4 border-green-400 opacity-30 group-hover:opacity-80 group-hover:shadow-[0_0_10px_#00FF00,0_0_20px_#00FF00,0_0_30px_#00FF00]"></span>
+                <span className="absolute inset-0 rounded-xl bg-gradient-to-r from-green-400 via-green-500 to-green-600 p-[2px] opacity-100 transition-opacity duration-500"></span>
+                <span className="absolute inset-0 rounded-xl bg-transparent border-4 border-green-400 opacity-80 shadow-[0_0_10px_#00FF00,0_0_20px_#0000f0,0_0_30px_#00FF00]"></span>
                 <span className="relative z-10 flex items-center space-x-2">
                   <i className="fab fa-whatsapp mr-2"></i>
-                  <span className="transition-all duration-500 group-hover:translate-x-1">
+                  <span className="transition-all duration-500">
                     Contáctanos por WhatsApp
                   </span>
                 </span>
-              </a>
+              </motion.a>
             </div>
           </div>
 

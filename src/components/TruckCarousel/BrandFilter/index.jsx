@@ -69,17 +69,18 @@ const BrandFilter = ({ uniqueBrands, handleBrandChange }) => {
       {/* En pantallas móviles (sm) mostramos un botón para abrir el modal */}
       <div className="lg:hidden">
         <button
-          onClick={toggleModal} // Abrir el modal
-          className="px-4 py-2 text-sm font-medium text-white bg-gray-800 hover:bg-gray-700 focus:outline-none rounded-md"
+          onClick={toggleModal} // Abrir o cerrar el modal
+          className="px-4 py-2 text-sm font-medium text-white bg-gray-800 hover:bg-gray-700 focus:outline-none rounded-md flex items-center space-x-2"
         >
-          Categoría
+          <span>Categoría</span>
+          <i className="fa-solid fa-code-commit"></i> {/* Ícono con animación */}
         </button>
 
         {/* Modal con Framer Motion */}
         <AnimatePresence>
           {isModalOpen && (
             <motion.div
-              className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50" // Fondo oscuro
+              className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-md" // Fondo oscuro y difuso
               variants={backdropVariants} // Animación del fondo
               initial="hidden"
               animate="visible"

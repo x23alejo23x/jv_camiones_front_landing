@@ -71,19 +71,15 @@ const ContactForm = () => {
         {/* Tarjeta completa */}
         <motion.div
           className="relative w-full max-w-md bg-gray-700 rounded-lg p-6 md:p-8 flex flex-col items-center justify-center shadow-[0px_3px_160px_15px_rgba(123,_155,_231,_0.93)]"
-          initial={{ opacity: 0, y: -50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: "easeInOut" }}
+       
         >
           <motion.div
-            className="w-full h-48 md:h-64 rounded-lg overflow-hidden"
-            animate={{ scale: [1, 1.01, 1] }}
-            transition={{ repeat: Infinity, duration: 1, ease: "easeInOut" }}
+         
           >
             <img
               src={photoform}
               alt="Formulario"
-              className="w-full h-full object-cover"
+              className="w-full h-full rounded-lg object-cover"
             />
           </motion.div>
 

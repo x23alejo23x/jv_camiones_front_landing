@@ -20,8 +20,18 @@ const TruckCarousel = () => {
             <div className="flex flex-col justify-center items-center w-full max-w-screen-xl mx-auto ">
               {/* Título */}
               <h1 className="text-3xl font-bold mb-10 text-center text-white">
-                Camiones Disponibles
-              </h1>
+  CAMIONES<br />
+  <span
+    className="text-blue-950 font-extrabold text-3xl"
+    style={{ fontStyle: "italic" }}
+  >
+    DISPONIBLES
+  </span>
+</h1>
+
+
+
+
 
               {/* Filtros y lógica */}
               <div className="w-full px-4">
