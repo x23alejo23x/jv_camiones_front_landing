@@ -1,6 +1,10 @@
 import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { FaUser, FaPhone, FaEnvelope } from "react-icons/fa"; // Importar íconos
 
 const photoform = "/assets/Images/toyota.jpg";
+const photoform2 = "/assets/Images/toyota.jpg";
+const photoform3 = "/assets/Images/volvo.jfif";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -60,95 +64,125 @@ const ContactForm = () => {
   return (
     <div
       id="Contactanos"
-      className="bg-gradient-to-r py-6 flex justify-center items-center from-[#0f172a] to-[#334155]"
+      className="bg-gradient-to-r py-6 flex justify-center items-center from-[#0f172a] to-[#334155] min-h-screen"
     >
-      <div className="flex container mx-auto px-4 sm:px-6 lg:px-8 max-w-full flex-col md:flex-row items-center justify-center space-y-8 md:space-y-0 md:space-x-10 h-auto md:h-screen">
-        {/* Sección de contacto */}
-        <div className="w-full md:w-1/2 bg-gray-700 rounded-md m-2 p-4 md:p-8 flex-1 h-full">
-          <div className="flex flex-col items-center justify-center bg-gray-900 rounded-lg p-8 md:p-16 h-full">
-            <h2 className="text-white text-center font-bold text-xl md:text-2xl mb-2 md:mb-4">
-              Contáctanos
-            </h2>
+      <div className="container mx-auto px-4 justify-center  sm:px-6 lg:px-8 max-w-full flex flex-col md:flex-row space-y-8 md:space-y-0 md:space-x-10">
 
-            <div className="mt-4 w-full">
-              <label className="text-white text-md md:text-lg" htmlFor="nombre">
-                Nombre
-              </label>
+        {/* Tarjeta completa */}
+        <motion.div
+          className="relative w-full max-w-md bg-gray-700 rounded-lg p-6 md:p-8 flex flex-col items-center justify-center shadow-[0px_3px_160px_15px_rgba(123,_155,_231,_0.93)]"
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: "easeInOut" }}
+        >
+          <motion.div
+            className="w-full h-48 md:h-64 rounded-lg overflow-hidden"
+            animate={{ scale: [1, 1.01, 1] }}
+            transition={{ repeat: Infinity, duration: 1, ease: "easeInOut" }}
+          >
+            <img
+              src={photoform}
+              alt="Formulario"
+              className="w-full h-full object-cover"
+            />
+          </motion.div>
+
+          <h2 className="text-white text-center font-bold text-xl md:text-2xl my-4">
+            Contáctanos
+          </h2>
+
+          <div className="w-full">
+            <div className="flex items-center space-x-2">
+              <div className="bg-gray-600 p-2 rounded-sm hover:shadow-xl hover:shadow-blue-900 transition-all duration-300 ease-in-out">
+                <FaUser className="text-white text-lg" />
+              </div>
               <input
                 name="nombre"
                 value={formData.nombre}
                 onChange={handleChange}
-                placeholder={errors.nombre || "nombre..."}
+                placeholder={errors.nombre || "Nombre"}
                 className={`w-full bg-gray-800 rounded-md border ${
                   errors.nombre ? "border-red-500" : "border-gray-700"
-                } text-white px-2 py-1 md:px-4 md:py-2 mt-1`}
+                } text-white placeholder-gray-500 px-4 py-2 mt-1`}
                 type="text"
               />
             </div>
+          </div>
 
-            <div className="mt-4 w-full">
-              <label
-                className="text-white text-md md:text-lg"
-                htmlFor="celular"
-              >
-                Celular
-              </label>
+          <div className="mt-4 w-full">
+            <div className="flex items-center space-x-2">
+              <div className="bg-gray-600 p-2 rounded-sm hover:shadow-xl hover:shadow-green-900 transition-all duration-300 ease-in-out">
+                <FaPhone className="text-white text-lg" />
+              </div>
               <input
                 name="celular"
                 value={formData.celular}
                 onChange={handleChange}
-                placeholder={errors.celular || "celular..."}
+                placeholder={errors.celular || "Celular"}
                 className={`w-full bg-gray-800 rounded-md border ${
                   errors.celular ? "border-red-500" : "border-gray-700"
-                } text-white px-2 py-1 md:px-4 md:py-2 mt-1`}
+                } text-white placeholder-gray-500 px-4 py-2 mt-1`}
                 type="text"
               />
             </div>
+          </div>
 
-            <div className="mt-4 w-full">
-              <label className="text-white text-md md:text-lg" htmlFor="correo">
-                Correo
-              </label>
+          <div className="mt-4 w-full">
+            <div className="flex items-center space-x-2">
+              <div className="bg-gray-600 p-2 rounded-sm hover:shadow-xl hover:shadow-red-900 transition-all duration-300 ease-in-out">
+                <FaEnvelope className="text-white text-lg" />
+              </div>
               <input
                 name="correo"
                 value={formData.correo}
                 onChange={handleChange}
-                placeholder={errors.correo || "correo..."}
+                placeholder={errors.correo || "Correo"}
                 className={`w-full bg-gray-800 rounded-md border ${
                   errors.correo ? "border-red-500" : "border-gray-700"
-                } text-white px-2 py-1 md:px-4 md:py-2 mt-1`}
-                type="text"
+                } text-white placeholder-gray-500 px-4 py-2 mt-1`}
+                type="email"
               />
             </div>
           </div>
-        </div>
 
-        {/* Sección de la imagen */}
-        <div className="w-full md:w-1/2 bg-gray-700 rounded-md m-2 p-4 md:p-8 flex-1 h-full">
-          <div className="flex flex-col items-center justify-center bg-gray-900 rounded-lg p-8 md:p-16 h-full">
-            <div
-              className="w-full sm:w-64 h-48 sm:h-60 md:w-80 md:h-60 rounded-md"
-              style={{
-                backgroundImage: `url(${photoform})`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-              }}
-            ></div>
+          <button
+            onClick={handleSubmit}
+            className="mt-6 bg-gradient-to-r from-blue-500 to-blue-700 hover:from-blue-600 hover:to-blue-800 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition-all duration-500 hover:scale-110 hover:brightness-110"
+          >
+            Enviar
+          </button>
+        </motion.div>
 
-            <div className="flex flex-col gap-4 md:gap-6">
-              <span className="text-md md:text-lg text-center text-white">
-                Déjanos tus datos, pronto nos pondremos en contacto
-              </span>
+       {/* Sección con las dos tarjetas apiladas */}
+<div className=" flex-col space-y-8 w-full max-w-md hidden md:block">
+  {/* Tarjeta 1 */}
+  <motion.div
+    className="relative w-full bg-gray-700 rounded-lg p-6 md:p-8 flex flex-col items-center justify-center shadow-[0px_3px_160px_15px_rgba(123,_155,_231,_0.93)]"
+  >
+    <motion.div className="w-full h-48 md:h-64 rounded-lg overflow-hidden">
+      <img
+        src={photoform2}
+        alt="Formulario"
+        className="w-full h-full object-cover"
+      />
+    </motion.div>
+  </motion.div>
 
-              <button
-                onClick={handleSubmit}
-                className="bg-gradient-to-r from-blue-500 to-blue-700 hover:from-blue-600 hover:to-blue-800 text-white font-bold py-3 px-6 rounded-lg shadow-lg transform transition-all duration-500 ease-in-out hover:scale-110 hover:brightness-110 hover:animate-pulse active:animate-bounce"
-              >
-                Enviar
-              </button>
-            </div>
-          </div>
-        </div>
+  {/* Tarjeta 2 */}
+  <motion.div
+    className="relative w-full bg-gray-700 rounded-lg p-6 md:p-8 flex flex-col items-center justify-center shadow-[0px_3px_160px_15px_rgba(123,_155,_231,_0.93)]"
+  >
+    <motion.div className="w-full h-48 md:h-64 rounded-lg overflow-hidden">
+      <img
+        src={photoform3}
+        alt="Formulario"
+        className="w-full h-full object-cover"
+      />
+    </motion.div>
+  </motion.div>
+</div>
+
+
       </div>
     </div>
   );
